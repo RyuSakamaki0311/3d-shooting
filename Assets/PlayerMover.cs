@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
+    [Range(300f,1000f)]
     [SerializeField]
     private float _moveSpeed;
 
@@ -31,7 +32,9 @@ public class PlayerMover : MonoBehaviour
         {
             dir = _camera.transform.TransformDirection(dir);
             dir.y = 0;
-            _rb.velocity = dir.normalized * _moveSpeed;
+
+            var velo = dir.normalized * _moveSpeed * Time.deltaTime;
+            _rb.velocity = velo;
         }
         else
         {
