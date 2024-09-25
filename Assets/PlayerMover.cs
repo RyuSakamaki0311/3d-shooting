@@ -1,10 +1,17 @@
+using System;
 using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
+    [SerializeField]
+    private bool _canJumping;
+
     [Range(300f,1000f)]
     [SerializeField]
     private float _moveSpeed;
+
+    [SerializeField]
+    private float _jumpPower;
 
     private Camera _camera;
     private Rigidbody _rb;
@@ -18,8 +25,26 @@ public class PlayerMover : MonoBehaviour
     private void Update()
     {
         Walk();
+        Jump();
     }
 
+    /// <summary>
+    /// ÉWÉÉÉìÉv
+    /// </summary>
+    private void Jump()
+    {
+        if (_canJumping)
+        {
+            if (IsGrounded())
+            {
+                _rb.AddForce(Vector3.up * _jumpPower);
+            }
+        }
+    }
+
+    /// <summary>
+    /// ï‡Ç≠
+    /// </summary>
     private void Walk()
     {
         if (_rb == null) return;
@@ -40,5 +65,14 @@ public class PlayerMover : MonoBehaviour
         {
             _rb.velocity = Vector3.zero;
         }
+    }
+
+    /// <summary>
+    /// ê›íuîªíË
+    /// </summary>
+    private bool IsGrounded()
+    {
+
+        return true;
     }
 }
