@@ -245,7 +245,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f1085247afbc24abbd14df44e4ca91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canJumping: 1
+  _rayStartOffsetLength: 0.95
+  _rayLength: 0.1
   _moveSpeed: 650
+  _jumpPower: 6
 --- !u!54 &84673222
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -588,7 +592,7 @@ GameObject:
   - component: {fileID: 1173023369}
   - component: {fileID: 1173023368}
   - component: {fileID: 1173023367}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
